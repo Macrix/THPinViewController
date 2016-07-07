@@ -9,7 +9,7 @@
 @import UIKit;
 #import "THPinViewControllerMacros.h"
 
-@class THPinViewController;
+@class THPinViewController, THPinView;
 
 // when using translucentBackground assign this tag to the view that should be blurred
 static const NSInteger THPinViewControllerContentViewTag = 14742;
@@ -43,6 +43,8 @@ static const NSInteger THPinViewControllerContentViewTag = 14742;
 @property (nonatomic, assign) BOOL disableCancel; // hides the cancel button
 @property (nonatomic, assign) BOOL squareButtons; // makes the buttons squares, not cirles
 
-- (instancetype)initWithDelegate:(id<THPinViewControllerDelegate>)delegate NS_DESIGNATED_INITIALIZER;
+@property (nonatomic, strong, readonly) THPinView *pinView;
+
+- (instancetype)initWithDelegate:(id<THPinViewControllerDelegate>)delegate;
 
 @end

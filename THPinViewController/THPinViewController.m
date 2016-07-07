@@ -12,7 +12,6 @@
 
 @interface THPinViewController () <THPinViewDelegate>
 
-@property (nonatomic, strong) THPinView *pinView;
 @property (nonatomic, strong) UIView *blurView;
 @property (nonatomic, strong) NSArray *blurViewContraints;
 
@@ -45,7 +44,7 @@
         self.view.backgroundColor = self.backgroundColor;
     }
     
-    self.pinView = [[THPinView alloc] initWithDelegate:self];
+    _pinView = [[THPinView alloc] initWithDelegate:self];
     self.pinView.backgroundColor = self.view.backgroundColor;
     self.pinView.promptTitle = self.promptTitle;
     self.pinView.promptColor = self.promptColor;

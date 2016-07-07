@@ -8,6 +8,7 @@
 
 #import "THViewController.h"
 #import "THPinViewController.h"
+#import "THPinView.h"
 
 @interface THViewController () <THPinViewControllerDelegate>
 
@@ -101,14 +102,16 @@ static const NSUInteger THNumberOfPinEntries = 6;
     UIColor *darkBlueColor = [UIColor colorWithRed:0.012f green:0.071f blue:0.365f alpha:1.0f];
     pinViewController.promptColor = darkBlueColor;
     pinViewController.view.tintColor = darkBlueColor;
-    
+    pinViewController.pinView.cancelButtonTitle = @"Custom Cancel";
+    pinViewController.pinView.deleteButtonTitle = @"Custom Delete";
+
     // for a solid background color, use this:
-    pinViewController.backgroundColor = [UIColor whiteColor];
+    pinViewController.backgroundColor = [UIColor blackColor];
     
     // for a translucent background, use this:
     self.view.tag = THPinViewControllerContentViewTag;
     self.modalPresentationStyle = UIModalPresentationCurrentContext;
-    pinViewController.translucentBackground = YES;
+    pinViewController.translucentBackground = NO;
     
     [self presentViewController:pinViewController animated:animated completion:nil];
 }

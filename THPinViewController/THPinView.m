@@ -93,7 +93,7 @@
             [self addConstraint:[NSLayoutConstraint constraintWithItem:_bottomButton attribute:NSLayoutAttributeWidth
                                                              relatedBy:NSLayoutRelationLessThanOrEqual
                                                                 toItem:self attribute:NSLayoutAttributeWidth
-                                                            multiplier:0.4f constant:0.0f]];
+                                                            multiplier:1.f constant:0.0f]];
         }
         
         NSMutableString *vFormat = [NSMutableString stringWithString:@"V:|[promptLabel]-(paddingBetweenPromptLabelAndInputCircles)-[inputCirclesView]-(paddingBetweenInputCirclesAndNumPad)-[numPadView]"];
@@ -195,6 +195,18 @@
     [self updateBottomButton];
 }
 
+- (void)setCancelButtonTitle:(NSString *)cancelButtonTitle {
+    _cancelButtonTitle = cancelButtonTitle;
+
+    [self updateBottomButton];
+}
+
+- (void)setDeleteButtonTitle:(NSString *)deleteButtonTitle {
+    _deleteButtonTitle = deleteButtonTitle;
+
+    [self updateBottomButton];
+}
+
 #pragma mark - Public
 
 - (void)updateBottomButton
@@ -203,16 +215,14 @@
                                                                                 ofType:@"bundle"]];
     if ([self.input length] == 0) {
         self.bottomButton.hidden = self.disableCancel;
-        [self.bottomButton setTitle:NSLocalizedStringFromTableInBundle(@"cancel_button_title", @"THPinViewController",
-                                                                       bundle, nil)
-                           forState:UIControlStateNormal];
+        NSString *title = self.cancelButtonTitle.length > 0 ? self.cancelButtonTitle : NSLocalizedStringFromTableInBundle(@"cancel_button_title", @"THPinViewController", bundle, nil);
+        [self.bottomButton setTitle:title forState:UIControlStateNormal];
         [self.bottomButton removeTarget:self action:@selector(delete:) forControlEvents:UIControlEventTouchUpInside];
         [self.bottomButton addTarget:self action:@selector(cancel:) forControlEvents:UIControlEventTouchUpInside];
     } else {
         self.bottomButton.hidden = NO;
-        [self.bottomButton setTitle:NSLocalizedStringFromTableInBundle(@"delete_button_title", @"THPinViewController",
-                                                                       bundle, nil)
-                           forState:UIControlStateNormal];
+        NSString *title = self.deleteButtonTitle.length > 0 ? self.deleteButtonTitle : NSLocalizedStringFromTableInBundle(@"delete_button_title", @"THPinViewController", bundle, nil);
+        [self.bottomButton setTitle:title forState:UIControlStateNormal];
         [self.bottomButton removeTarget:self action:@selector(cancel:) forControlEvents:UIControlEventTouchUpInside];
         [self.bottomButton addTarget:self action:@selector(delete:) forControlEvents:UIControlEventTouchUpInside];
     }

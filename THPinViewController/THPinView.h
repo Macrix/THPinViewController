@@ -31,6 +31,9 @@
 @property (nonatomic, assign) BOOL disableCancel;
 @property (nonatomic, assign) BOOL squareButtons;
 
-- (instancetype)initWithDelegate:(id<THPinViewDelegate>)delegate NS_DESIGNATED_INITIALIZER;
+@property (nonatomic) NSString *cancelButtonTitle;
+@property (nonatomic) NSString *deleteButtonTitle;
+
+- (instancetype)initWithDelegate:(id<THPinViewDelegate>)delegate;
 
 @end
