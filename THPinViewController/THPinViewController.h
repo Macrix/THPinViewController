@@ -42,6 +42,7 @@ static const NSInteger THPinViewControllerContentViewTag = 14742;
 @property (nonatomic, assign) BOOL hideLetters; // hides the letters on the number buttons
 @property (nonatomic, assign) BOOL disableCancel; // hides the cancel button
 @property (nonatomic, assign) BOOL squareButtons; // makes the buttons squares, not cirles
+@property (nonatomic, assign) BOOL shouldDismissController; // default YES, if NO all delegates are called anyway
 
 @property (nonatomic, strong, readonly) THPinView *pinView;
 
