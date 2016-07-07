@@ -48,4 +48,9 @@ static const NSInteger THPinViewControllerContentViewTag = 14742;
 
 - (instancetype)initWithDelegate:(id<THPinViewControllerDelegate>)delegate;
 
+/**
+ *  Reverts the state of PIN to entry: no PIN entered.
+ */
+- (void)clearPin;
+
 @end

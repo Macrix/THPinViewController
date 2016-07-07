@@ -142,6 +142,12 @@
     self.pinView.disableCancel = self.disableCancel;
 }
 
+#pragma mark - Public Methods
+
+- (void)clearPin {
+    [self.pinView clearPin];
+}
+
 #pragma mark - Blur
 
 - (void)addBlurView

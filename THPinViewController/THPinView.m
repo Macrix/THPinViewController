@@ -207,7 +207,11 @@
     [self updateBottomButton];
 }
 
-#pragma mark - Public
+#pragma mark - Public Methods
+
+- (void)clearPin {
+    [self resetInput];
+}
 
 - (void)updateBottomButton
 {

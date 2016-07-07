@@ -36,4 +36,9 @@
 
 - (instancetype)initWithDelegate:(id<THPinViewDelegate>)delegate;
 
+/**
+ *  Reverts the state of PIN to entry: no PIN entered.
+ */
+- (void)clearPin;
+
 @end
